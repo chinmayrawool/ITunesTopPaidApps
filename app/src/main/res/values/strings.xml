@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">iTunes Top Paid Apps</string>
+    <string name="refresh_list">Refresh List</string>
+    <string name="favorites">Favorites</string>
+    <string name="sort_increasingly">Sort Increasingly</string>
+    <string name="sort_decreasingly">Sort Decreasingly</string>
+</resources>
