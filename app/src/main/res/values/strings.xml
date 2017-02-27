@@ -4,4 +4,5 @@
     <string name="favorites">Favorites</string>
     <string name="sort_increasingly">Sort Increasingly</string>
     <string name="sort_decreasingly">Sort Decreasingly</string>
+    <string name="app_favorites_title">Favorites</string>
 </resources>

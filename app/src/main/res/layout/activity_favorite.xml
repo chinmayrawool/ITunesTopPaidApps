@@ -14,10 +14,15 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar1"
         app:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="@string/app_favorites_title"
+        android:id="@+id/tv_favorites"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="420dp"

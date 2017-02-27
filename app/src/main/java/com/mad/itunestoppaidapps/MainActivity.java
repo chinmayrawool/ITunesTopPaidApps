@@ -1,3 +1,17 @@
+
+/*
+* Homework 6
+*
+* Group# 03
+* Name: Chinmay Rawool
+*       Neha Dalvi
+*
+* File name: Group03_HW06.zip
+* */
+
+
+
+
 package com.mad.itunestoppaidapps;
 
 import android.app.ProgressDialog;
@@ -16,6 +30,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import org.ocpsoft.prettytime.PrettyTime;
 
 import java.lang.annotation.Retention;
 import java.util.ArrayList;
@@ -81,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements GetDataAsync.IDat
             editor.putString("LIST_APPS",str1);
             editor.apply();
 
-            //finish();
+            finish();
             startActivity(intent);
         }
         if(item.getItemId()==R.id.action_increasingly) {
@@ -98,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements GetDataAsync.IDat
             adapter = new AppAdapter(this,R.layout.row_layout,arrayList);
             listView.setAdapter(adapter);
             adapter.setNotifyOnChange(true);
+            adapter.notifyDataSetChanged();
         }
         if(item.getItemId()==R.id.action_decreasingly) {
             Toast.makeText(this, "Sort Decreasingly clicked", Toast.LENGTH_SHORT).show();
@@ -129,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements GetDataAsync.IDat
         adapter = new AppAdapter(this,R.layout.row_layout,arrayList);
         listView.setAdapter(adapter);
         adapter.setNotifyOnChange(true);
+        adapter.notifyDataSetChanged();
 
 
 

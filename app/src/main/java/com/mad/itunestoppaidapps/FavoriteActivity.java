@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,6 +26,10 @@ public class FavoriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite);
         //list = (ArrayList<AppDetails>) getIntent().getExtras().getSerializable("ARRAYLIST");
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
+
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
         String listString = preferences.getString("LIST_APPS", "");
@@ -41,6 +46,7 @@ public class FavoriteActivity extends AppCompatActivity {
         adapter = new AppAdapter(this,R.layout.row_layout,arrayList);
         listView.setAdapter(adapter);
         adapter.setNotifyOnChange(true);
+        adapter.notifyDataSetChanged();
 
 
         findViewById(R.id.btn_backmain).setOnClickListener(new View.OnClickListener() {
@@ -50,6 +56,7 @@ public class FavoriteActivity extends AppCompatActivity {
                 editor.apply();
                 Intent intent =new Intent(FavoriteActivity.this, MainActivity.class);
                 startActivity(intent);
+                //MainActivity.this.finish();
                 finish();
             }
         });
