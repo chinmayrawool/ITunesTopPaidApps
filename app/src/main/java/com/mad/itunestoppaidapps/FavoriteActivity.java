@@ -1,10 +1,12 @@
 package com.mad.itunestoppaidapps;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,6 +41,18 @@ public class FavoriteActivity extends AppCompatActivity {
         adapter = new AppAdapter(this,R.layout.row_layout,arrayList);
         listView.setAdapter(adapter);
         adapter.setNotifyOnChange(true);
+
+
+        findViewById(R.id.btn_backmain).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor.putString("LIST_APPS",buildString(list));
+                editor.apply();
+                Intent intent =new Intent(FavoriteActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     public ArrayList<AppDetails> getArrayList(String str){
@@ -55,5 +69,15 @@ public class FavoriteActivity extends AppCompatActivity {
             list.add(app);
         }
         return list;
+    }
+    public String buildString(ArrayList<AppDetails> list){
+        StringBuilder sb = new StringBuilder();
+        String size = String.valueOf(list.size());
+        sb.append(size+";");
+        for(int i=0;i<list.size();i++){
+            sb.append(list.get(i).buildStr());
+        }
+        Log.d("String:",sb.toString());
+        return sb.toString();
     }
 }

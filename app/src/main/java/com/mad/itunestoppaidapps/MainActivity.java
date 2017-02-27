@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements GetDataAsync.IDat
             String str1 = buildString(arrayList);
             editor.putString("LIST_APPS",str1);
             editor.apply();
+
+            //finish();
             startActivity(intent);
         }
         if(item.getItemId()==R.id.action_increasingly) {
